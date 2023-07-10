@@ -1,0 +1,49 @@
+mat-card {
+    max-width: 450px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  .form-field{
+    margin:5px;
+    
+  }
+
+  td{
+    min-height: 90px;
+    display: inline-block;
+  }
+
+//   ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+//     background-color: grey !important;
+//   }
+
+//   ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+//     border-color: grey !important;
+//   }
+
+::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 0 !important;
+}
+
+  .sign-up-txt{
+    font-weight: bold;
+    font-size: 150%;
+    margin:20px;
+  }
+
+  .full-width{
+    width: 400px !important;
+  }
+
+  mat-error{
+    
+    
+  }
+
+  tr{
+    height: 50px;
+  }
+
+  .flt-rt{
+    float: right;
+  }

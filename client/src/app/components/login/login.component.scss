@@ -1,0 +1,45 @@
+.wrapper{
+    background-color: lightgrey;
+  }
+  
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+
+  .govt-txt, .app-title{
+    display: flex;
+    
+    justify-content: center;
+    
+    font-weight: bold;
+    font-size: 150%;
+    
+  }
+
+  .govt{
+    margin-top:50px;
+  }
+
+  .govt-logo{
+    display: flex;
+    
+    justify-content: center;
+    
+  }
+
+  .sign-up-wrapper{
+    text-align: center;
+  }
+
+  .sign-up{
+    cursor: pointer;
+    color: #0000EE;
+  }
+
+  

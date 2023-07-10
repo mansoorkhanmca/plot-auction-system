@@ -1,0 +1,139 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+    </button>
+    <span>Plot Auction System</span>
+    <span class="menu-spacer">
+
+    </span>
+    <span class="search">
+        <mat-form-field class="full-width">
+
+            <input matInput (keyup)="doSearch($event)">
+            <mat-icon matSuffix class="search-icon">search</mat-icon>
+        </mat-form-field>
+    </span>
+    <button mat-icon-button matBadge="3" matBadgeColor="warn" class="example-icon user-icon" [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with heart icon">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item disabled>
+        <mat-icon>person</mat-icon>
+        <span>{{userFullName }}</span>
+    </button>
+
+    <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable Alerts</span>
+        <!-- <mat-slide-toggle></mat-slide-toggle> -->
+    </button>
+
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </button>
+
+</mat-menu>
+
+<mat-drawer-container class="example-container" [hasBackdrop]="false" autosize>
+
+    <div class="main-container">
+
+        <ng-container *ngIf="!showDetailedPage">
+
+
+            <mat-grid-list [cols]="noOfColoumns" rowHeight="30em">
+                <div *ngFor="let plot of plotsList">
+                    <mat-grid-tile>
+                        <mat-card class="example-card">
+                            <!-- <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>Shiba Inu</mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header> -->
+
+                            <img mat-card-image src="assets/images/plots/{{plot.img}}" height="200" alt="Plots">
+                            <mat-card-content>
+                                <p>
+                                    A plot property is available for sale in {{plot.place}}, Pudhucherry.
+                                    It has an area of {{plot.size}}. The property is available at a price of
+                                    ₹{{plot.rate}}
+                                    <br /><br />
+                                    <span class="item-info">Place: {{plot.place}}</span>
+                                    <span class="item-info flt-rt">Area: {{plot.size}}</span><br /><br />
+                                    <span class="item-info">Bid starts: ₹{{plot.rate}}</span>
+                                    <span class="item-info flt-rt">Bid Id: {{plot.id}}</span>
+                                </p>
+                            </mat-card-content>
+                            <mat-card-actions class="card-actions">
+                                <button mat-stroked-button color="warn">{{plot.timer }}</button>
+                                <span class="space"></span>
+                                <button mat-raised-button color="primary" (click)="startBid(plot)">Bid</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </mat-grid-tile>
+                </div>
+
+            </mat-grid-list>
+        </ng-container>
+        <ng-container *ngIf="showDetailedPage">
+            <app-detailed [plotList]="plotsList" [selectedPlot]="selectedPlot" (cancelEvent)="showDetailedPage = $event" (bidEvent)="bidedAmont($event)"></app-detailed>
+        </ng-container>
+
+    </div>
+
+    <mat-drawer #drawer [mode]="'over'" class="drawer">
+        <button mat-menu-item disabled>
+            <mat-icon>apps</mat-icon>
+            <span>Application Menu Items</span>
+        </button>
+
+        <button mat-menu-item (click)="leaderboard()">
+            <mat-icon>table_chart</mat-icon>
+            <span>Leader Board</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>voicemail</mat-icon>
+            <span>Analytics</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>receipt</mat-icon>
+            <span>Brouchers</span>
+        </button>
+
+
+        <button mat-menu-item>
+            <mat-icon>payment</mat-icon>
+            <span>Payments</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            <span>My Profile</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>cloud_download</mat-icon>
+            <span>Downloads</span>
+        </button>
+
+
+
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>developer_mode</mat-icon>
+            <span>Developer</span>
+        </button>
+
+
+    </mat-drawer>
+
+</mat-drawer-container>

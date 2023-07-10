@@ -1,0 +1,162 @@
+<br/>
+<mat-card>
+    <mat-card-content>
+        <div class="sign-up-txt">SIGN UP</div>
+        
+        <form [formGroup]="singupForm" class="example-form" (ngSubmit)="signUpFormSubmit()">
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>First name</mat-label>
+                                    <input matInput formControlName="firstName" class="form-control" required>
+                                </mat-form-field>
+                                <mat-error *ngIf="singupFormControl.firstName.invalid && (singupFormControl.firstName.dirty || singupFormControl.firstName.touched)">
+                                    Please provide valid first name
+                                </mat-error>    
+                                
+                            </span>
+                            
+                        </td>
+                        <td>
+                            <span class="form-field">
+
+            
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput formControlName="lastName" required>
+                                </mat-form-field>
+                                <mat-error *ngIf="singupFormControl.lastName.invalid && (singupFormControl.lastName.dirty || singupFormControl.lastName.touched)">
+                                    Please provide valid last name
+                                </mat-error>
+                            </span>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Gender *</mat-label>
+                                    <mat-select formControlName="gender">
+                                      <mat-option value="male">Male</mat-option>
+                                      <mat-option value="female">Female</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </span>
+                            <mat-error *ngIf="singupFormControl.gender.invalid && (singupFormControl.gender.dirty || singupFormControl.gender.touched)">
+                                Please select Gender
+                            </mat-error>
+                        </td>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Mobile No</mat-label>
+                                    <input matInput type="number" formControlName="mobileNo" minlength="10" required>
+                                </mat-form-field>
+                                <mat-error *ngIf="singupFormControl.mobileNo.invalid && (singupFormControl.mobileNo.dirty || singupFormControl.mobileNo.touched)">
+                                    Please provide proper Mobile No
+                                </mat-error>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" formControlName="email" required>
+                                <!-- <mat-icon matSuffix>check</mat-icon> -->
+                            </mat-form-field>
+                            <mat-error *ngIf="singupFormControl.email.invalid && (singupFormControl.email.dirty || singupFormControl.email.touched)">
+                                Please provide valid Email Id
+                            </mat-error>    
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput type="password" formControlName="password" required>
+                                </mat-form-field>
+                            </span>
+                            <mat-error *ngIf="singupFormControl.password.invalid && (singupFormControl.password.dirty || singupFormControl.password.touched)">
+                                Please provide valid Password
+                            </mat-error>    
+                        </td>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>Confirm Password</mat-label>
+                                    <input matInput type="password" formControlName="confirmPassword" required>
+                                </mat-form-field>
+                            </span>
+                            <!-- <mat-error *ngIf="singupFormControl.confirmPassword.invalid && (singupFormControl.confirmPassword.dirty || singupFormControl.confirmPassword.touched)">
+                                Please provide confirm Password
+                            </mat-error>   -->
+
+                            <mat-error *ngIf="(singupFormControl.confirmPassword.value != singupFormControl.password.value && (singupFormControl.confirmPassword.dirty || singupFormControl.confirmPassword.touched))">
+                                Both Password shoud be same
+                            </mat-error>  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Address</mat-label>
+                                <textarea matInput placeholder="Ex. 100 Main St" formControlName="address"></textarea>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>City</mat-label>
+                                    <input matInput placeholder="Ex. Mumbai" formControlName="city">
+                                </mat-form-field>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="form-field">
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                    <mat-label>State</mat-label>
+                                    <input matInput placeholder="Ex. Maharashtra" formControlName="state">
+                                </mat-form-field>
+                            </span>
+                        </td>
+
+                    </tr>
+                    <button mat-raised-button (click)="cancel()">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color="primary" type="submit">Sign Up</button>
+                </tbody>
+            </table>
+
+
+            
+
+
+    
+            
+            
+            
+
+            
+
+            
+            
+            
+                
+            
+            
+            
+            
+            
+            
+        </form>
+    </mat-card-content>
+</mat-card>

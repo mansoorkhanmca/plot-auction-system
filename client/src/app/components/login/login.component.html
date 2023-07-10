@@ -1,0 +1,42 @@
+<div class="wrapper">
+
+    <div class="govt">
+        <div class="govt-txt">
+
+            GOVERNMENT OF PUDHUCHERRY
+
+        </div>
+        <div class="govt-logo">
+            <img src="assets/images/puducherry.svg" width="200" />
+        </div>
+    </div>
+    <br />
+    <div class="app-title">PLOT AUCTION SYSTEM</div>
+    <mat-card>
+        <mat-card-content>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <h2>Log In</h2>
+                
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Email" [(ngModel)]="username" name="username" required>
+                    <mat-error>
+                        Please provide Email ID
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password"
+                        required>
+                    <mat-error>
+                        Please provide password
+                    </mat-error>
+                </mat-form-field>
+                <mat-error *ngIf="isInvalidCredentials">
+                    The username or password may incorrect
+                </mat-error><br/>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!(loginForm.form.valid && isEmailValid())">Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <div class="sign-up-wrapper">Don't have an account? <span class="sign-up" (click)="singup()">Sign Up</span></div>
+
+</div>

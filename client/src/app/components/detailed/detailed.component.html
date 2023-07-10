@@ -1,0 +1,76 @@
+<br /><br />
+<div class="detailed-page-wrapper">
+    <mat-grid-list cols="2" rowHeight="20em">
+        <mat-grid-tile>
+            <img src="assets/images/plots/{{plot.img}}" class="plot-img" width="500" height="300" alt="Plots">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card-content>
+                <h2>Plot Details</h2>
+                <div class="plot-details">
+                    Plot is located in the hot spot of {{plot.place}}. A well-developed plots spread
+                    over 100 acres in one of the fastest appreciating neighborhoods in Pudhcherry. Competitively priced
+                    at this prime
+                    location, with well-laid blacktop internal roads, parks, led street light, rainwater harvesting,
+                    perfect documents and post-purchase support,It is the only amenities loaded complete villa plot
+                    package. And your search for fortune ends, right here and right now.
+                    <br /><br />
+
+                    <button mat-raised-button color="primary">
+                        <a href="assets/broucher.pdf" target="_self" download="broucher.pdf">Download Broucher</a>
+                    </button>
+
+                </div>
+            </mat-card-content>
+
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    <br /><br /><br />
+    <mat-grid-list cols="4" rowHeight="10rem">
+        <mat-grid-tile>
+            <mat-card class="spread-card">
+                <h3>Base Amount</h3>
+                <h3>₹{{plot.rate}}</h3>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="spread-card">
+                <h3>Time to Bid</h3>
+                <h3 class="red-txt">{{plot?.timer}}</h3>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="spread-card-sm">
+                <h3>Enter Amount to Bid</h3>
+                <mat-form-field class="full-width" appearance="outline">
+                    <input matInput type="number" [(ngModel)]="plot.bidedAmount">
+                    <!-- <mat-icon matSuffix class="search-icon">search</mat-icon> -->
+                </mat-form-field>
+                <mat-error class="bid-err" *ngIf="bidErr">Should be higher than base amount</mat-error>
+
+            </mat-card>
+
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-card class="spread-card">
+                <h3>Check the Leading</h3>
+                <button mat-raised-button color="primary" (click)="leaderBoard()">Leader Board</button>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+
+    <mat-grid-list cols="3" rowHeight="10rem">
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <button mat-raised-button class="cancel-btn" (click)="cancel()">Cancel</button>
+            <button mat-raised-button color="primary" (click)="bidAmount($event)">Submit Bid</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

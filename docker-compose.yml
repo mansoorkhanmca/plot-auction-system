@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  nodeserver:
+    build: ./server
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+  angularclient:
+    build: ./client
+    ports:
+      - "4200:80"
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "80:80"
+    links:
+      - nodeserver
+      - angularclient
